@@ -1,0 +1,5 @@
+streamlit==1.35.0
+folium==0.16.0
+streamlit_folium==0.20.0
+geopandas==0.13.2
+pyrosm==0.6.1  # Updated to the latest available version
