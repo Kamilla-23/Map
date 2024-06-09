@@ -83,7 +83,7 @@ for _, row in streetlights_in_district.iterrows():
         ).add_to(m)
 end_add_streetlights = time.time()
 
-# Button to trigger API call
+# Button to trigger API call and display data on the map
 if st.sidebar.button("Fetch Traffic Data"):
     time_str = "2021-06-25 10:00:00Z"  # Example time
     ensure_results_path_exists()
@@ -92,11 +92,27 @@ if st.sidebar.button("Fetch Traffic Data"):
             data = download_data_for_district(name, boundary, time_str)
             if data:
                 st.success(f"Traffic data for {name} fetched successfully!")
+
+                # Add traffic data to the map
+                for feature in data['features']:
+                    geom = feature['geometry']
+                    props = feature['properties']
+
+                    # Assuming the geometry is a Point
+                    if geom['type'] == 'Point':
+                        lon, lat = geom['coordinates']
+                        traffic_count = props.get('traffic_count', 'N/A')  # Replace with the actual property name
+                        folium.Marker(
+                            location=[lat, lon],
+                            popup=f"Traffic Count: {traffic_count}",
+                            icon=folium.Icon(color='blue', icon='info-sign')
+                        ).add_to(m)
+
             else:
                 st.error(f"Failed to fetch traffic data for {name}.")
 
 # Display the map with Streamlit
-st.title("Berlin Streetlights Map")
+st.title("Berlin Streetlights and Traffic Data Map")
 st_folium(m, width=700, height=500)
 
 # Measure total end time
