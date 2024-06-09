@@ -1,59 +1,67 @@
-import pandas as pd
 import requests
 import json
 import our_secrets
-import geopandas as gpd
-from pathlib import Path
+from datetime import datetime, timedelta
 
-path_to_bezirksgrenzen = "bezirksgrenzen.geojson"
-target_folder = "results"
-retry_count = 5
-
-def download_data(area, time):
-    url = "https://telraam-api.net/v1/reports/traffic_snapshot"
+# Function to fetch data for a single segment
+def fetch_segment_data(segment_id, start_time, end_time):
+    url = "https://telraam-api.net/v1/reports/traffic"
     body = {
-        "time": time,
-        "contents": "minimal",
-        "area": area
+        "level": "segments",
+        "format": "per-hour",
+        "id": segment_id,
+        "time_start": start_time,
+        "time_end": end_time
     }
     headers = {
         'X-Api-Key': our_secrets.telraamApiKey
     }
     response = requests.post(url, headers=headers, json=body)
-    if response.status_code == 200:
-        return response.json()
-    else:
-        print(f'Error retrieving data for area {area}')
-        return None
+    return response.json() if response.status_code == 200 else None
 
-def get_gemeinde_boundaries(file_path):
-    file = gpd.read_file(file_path)
-    for _, y in file.iterrows():
-        yield y.Gemeinde_name, y.geometry.bounds
+# Function to process the fetched data
+def process_traffic_data(data):
+    hourly_traffic = {hour: {"car": [], "bike": [], "pedestrian": []} for hour in range(24)}
 
-def get_normalized_boundary_string(a, b, c, d):
-    w = max(a, c)
-    x = max(b, d)
-    y = min(a, c)
-    z = min(b, d)
-    return f"{w},{x},{y},{z}"
+    for report in data.get('report', []):
+        hour = datetime.fromisoformat(report['date']).hour
+        hourly_traffic[hour]["car"].append(report['car'])
+        hourly_traffic[hour]["bike"].append(report['bike'])
+        hourly_traffic[hour]["pedestrian"].append(report['pedestrian'])
 
-def download_data_for_district(name, boundary, time, retry_count=retry_count):
-    print(f"{name} has boundaries {boundary}")
-    a, b, c, d = boundary
-    formatted_boundaries = get_normalized_boundary_string(a, b, c, d)
-    data = download_data(formatted_boundaries, time)
-    if data is not None:
-        print(f"Found {len(data['features'])} features.")
-        file_path = f"{target_folder}/{name}.json"
-        with open(file_path, 'w') as f:
-            json.dump(data, f)
-        return data
-    else:
-        if retry_count > 1:
-            print(f"Retrying... tries remaining: {retry_count - 1}")
-            return download_data_for_district(name, boundary, time, retry_count - 1)
-        return None
+    averages = {hour: {
+        "avg_car": sum(values["car"]) / len(values["car"]) if values["car"] else 0,
+        "avg_bike": sum(values["bike"]) / len(values["bike"]) if values["bike"] else 0,
+        "avg_pedestrian": sum(values["pedestrian"]) / len(values["pedestrian"]) if values["pedestrian"] else 0
+    } for hour, values in hourly_traffic.items()}
 
-def ensure_results_path_exists():
-    Path(target_folder).mkdir(parents=True, exist_ok=True)
+    return averages
+
+# Function to fetch and process data for all segments
+def fetch_and_process_all_segments():
+    end_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    start_time = (datetime.utcnow() - timedelta(days=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    
+    # Fetch segment IDs and coordinates from Telraam API
+    url = "https://telraam-api.net/v1/segments/active"
+    headers = {
+        'X-Api-Key': our_secrets.telraamApiKey
+    }
+    response = requests.get(url, headers=headers)
+    segments_data = response.json() if response.status_code == 200 else None
+
+    if not segments_data:
+        return {}
+
+    all_segments_data = {}
+    for segment in segments_data['features']:
+        segment_id = segment['properties']['id']
+        coordinates = segment['geometry']['coordinates']
+        data = fetch_segment_data(segment_id, start_time, end_time)
+        if data:
+            averages = process_traffic_data(data)
+            all_segments_data[segment_id] = {
+                "averages": averages,
+                "coordinates": coordinates
+            }
+    return all_segments_data

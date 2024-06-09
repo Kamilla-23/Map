@@ -3,7 +3,7 @@ import geopandas as gpd
 import folium
 from streamlit_folium import st_folium
 import json
-from api_script import download_data_for_district, ensure_results_path_exists, get_gemeinde_boundaries
+from api_script import fetch_and_process_all_segments
 import time
 
 # Measure total runtime
@@ -19,6 +19,11 @@ def load_districts(file_path):
 def load_streetlights(file_path):
     return gpd.read_file(file_path)
 
+# Cache the function for loading traffic data
+@st.cache_data
+def load_traffic_data():
+    return fetch_and_process_all_segments()
+
 # Measure time for loading district boundaries
 start_districts = time.time()
 districts_file = 'bezirksgrenzen.geojson'
@@ -31,9 +36,15 @@ streetlights_file = 'pruned_streetlight.geojson'
 streetlights = load_streetlights(streetlights_file)
 end_streetlights = time.time()
 
+# Load traffic data
+traffic_data = load_traffic_data()
+
 # Streamlit select box for choosing the district
 st.sidebar.title("Map Options")
 selected_district = st.sidebar.selectbox("Choose a District", districts['Gemeinde_name'].unique())
+
+# Streamlit select box for choosing the hour
+selected_hour = st.sidebar.selectbox("Choose an Hour", list(range(24)))
 
 # Measure time for filtering the selected district
 start_filter_district = time.time()
@@ -83,33 +94,22 @@ for _, row in streetlights_in_district.iterrows():
         ).add_to(m)
 end_add_streetlights = time.time()
 
-# Button to trigger API call and display data on the map
-if st.sidebar.button("Fetch Traffic Data"):
-    time_str = "2021-06-25 10:00:00Z"  # Example time
-    ensure_results_path_exists()
-    for name, boundary in get_gemeinde_boundaries(districts_file):
-        if name == selected_district:
-            data = download_data_for_district(name, boundary, time_str)
-            if data:
-                st.success(f"Traffic data for {name} fetched successfully!")
+# Add segments with traffic data to the map
+for segment_id, data in traffic_data.items():
+    averages = data["averages"][selected_hour]
+    coordinates = data["coordinates"]
+    avg_car = averages["avg_car"]
+    avg_bike = averages["avg_bike"]
+    avg_pedestrian = averages["avg_pedestrian"]
 
-                # Add traffic data to the map
-                for feature in data['features']:
-                    geom = feature['geometry']
-                    props = feature['properties']
-
-                    # Assuming the geometry is a Point
-                    if geom['type'] == 'Point':
-                        lon, lat = geom['coordinates']
-                        traffic_count = props.get('traffic_count', 'N/A')  # Replace with the actual property name
-                        folium.Marker(
-                            location=[lat, lon],
-                            popup=f"Traffic Count: {traffic_count}",
-                            icon=folium.Icon(color='blue', icon='info-sign')
-                        ).add_to(m)
-
-            else:
-                st.error(f"Failed to fetch traffic data for {name}.")
+    folium.CircleMarker(
+        location=[coordinates[1], coordinates[0]],  # Assuming coordinates are [lon, lat]
+        radius=5,
+        color='blue',
+        fill=True,
+        fill_color='blue',
+        popup=f"Hour: {selected_hour}\nCars: {avg_car:.2f}\nBikes: {avg_bike:.2f}\nPedestrians: {avg_pedestrian:.2f}"
+    ).add_to(m)
 
 # Display the map with Streamlit
 st.title("Berlin Streetlights and Traffic Data Map")
