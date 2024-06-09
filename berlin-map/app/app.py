@@ -2,7 +2,6 @@ import streamlit as st
 import geopandas as gpd
 import folium
 from streamlit_folium import st_folium
-import json
 from api_script import fetch_and_process_all_segments
 import time
 
@@ -38,6 +37,9 @@ end_streetlights = time.time()
 
 # Load traffic data
 traffic_data = load_traffic_data()
+
+# Debugging output
+st.sidebar.text(f"Loaded {len(traffic_data)} segments")
 
 # Streamlit select box for choosing the district
 st.sidebar.title("Map Options")

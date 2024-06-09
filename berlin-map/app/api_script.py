@@ -1,7 +1,7 @@
 import requests
 import json
-import our_secrets
 from datetime import datetime, timedelta
+import our_secrets
 
 # Function to fetch data for a single segment
 def fetch_segment_data(segment_id, start_time, end_time):
@@ -64,4 +64,8 @@ def fetch_and_process_all_segments():
                 "averages": averages,
                 "coordinates": coordinates
             }
+    
+    # Debugging output
+    print("All segments data:", json.dumps(all_segments_data, indent=2))
+    
     return all_segments_data
