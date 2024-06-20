@@ -1,6 +1,6 @@
 import requests
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import our_secrets
 
 # Function to fetch data for a single segment
@@ -24,7 +24,9 @@ def process_traffic_data(data):
     hourly_traffic = {hour: {"car": [], "bike": [], "pedestrian": []} for hour in range(24)}
 
     for report in data.get('report', []):
-        hour = datetime.fromisoformat(report['date']).hour
+        # see https://stackoverflow.com/questions/127803/how-do-i-parse-an-iso-8601-formatted-date-and-time#comment90930357_49784038
+        dt = datetime.fromisoformat(report['date'].replace("Z", "+00:00"))
+        hour = dt.hour
         hourly_traffic[hour]["car"].append(report['car'])
         hourly_traffic[hour]["bike"].append(report['bike'])
         hourly_traffic[hour]["pedestrian"].append(report['pedestrian'])
@@ -39,11 +41,11 @@ def process_traffic_data(data):
 
 # Function to fetch and process data for all segments
 def fetch_and_process_all_segments():
-    end_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-    start_time = (datetime.utcnow() - timedelta(days=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    end_time = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    start_time = (datetime.now(timezone.utc) - timedelta(days=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
     
     # Fetch segment IDs and coordinates from Telraam API
-    url = "https://telraam-api.net/v1/segments/active"
+    url = "https://telraam-api.net/v1/segments/all"
     headers = {
         'X-Api-Key': our_secrets.telraamApiKey
     }
@@ -55,7 +57,7 @@ def fetch_and_process_all_segments():
 
     all_segments_data = {}
     for segment in segments_data['features']:
-        segment_id = segment['properties']['id']
+        segment_id = segment['properties']['oidn']
         coordinates = segment['geometry']['coordinates']
         data = fetch_segment_data(segment_id, start_time, end_time)
         if data:
@@ -69,3 +71,6 @@ def fetch_and_process_all_segments():
     print("All segments data:", json.dumps(all_segments_data, indent=2))
     
     return all_segments_data
+
+if __name__ == '__main__':
+    fetch_and_process_all_segments()
