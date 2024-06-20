@@ -7,6 +7,7 @@ WORKDIR /app
 # Install system dependencies and GDAL
 RUN apt-get update && apt-get install -y \
     gdal-bin \
+    python3-gdal \
     python3-dev \
     g++ \
     libgeos-dev \
@@ -28,7 +29,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Verify GDAL installation
-RUN gdal-config --version
+RUN gdalinfo --version
 
 # Set working directory back to /app
 WORKDIR /app
