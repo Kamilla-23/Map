@@ -1,13 +1,12 @@
-# Use an image with GDAL pre-installed
-FROM osgeo/gdal:ubuntu-small-3.4.1
+# Use the official Python 3.9 image from the Docker Hub
+FROM python:3.9-slim
 
 # Set the working directory
 WORKDIR /app
 
-# Install system dependencies and Python
+# Install system dependencies and GDAL
 RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
+    gdal-bin \
     python3-dev \
     g++ \
     libgeos-dev \
@@ -38,9 +37,9 @@ WORKDIR /app
 COPY app/requirements.txt /app/requirements.txt
 
 # Install Python dependencies
-RUN pip3 install --no-cache-dir -r /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Copy the GeoJSON file into the container
+# Copy the GeoJSON files into the container
 COPY app/pruned_streetlight.geojson /app/pruned_streetlight.geojson
 COPY app/bezirksgrenzen.geojson /app/bezirksgrenzen.geojson
 
