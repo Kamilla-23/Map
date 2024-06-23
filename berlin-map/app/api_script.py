@@ -2,6 +2,7 @@ import pyproj
 import requests
 import json
 from datetime import datetime, timedelta, timezone
+import geopandas as gpd
 import our_secrets
 
 # Define the projection for the conversion
