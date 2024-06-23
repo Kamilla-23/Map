@@ -1,7 +1,16 @@
+import pyproj
 import requests
 import json
 from datetime import datetime, timedelta, timezone
 import our_secrets
+
+# Define the projection for the conversion
+geod = pyproj.Geod(ellps='WGS84')  # WGS84 ellipsoid, commonly used for GPS
+
+# Function to convert [lon, lat] to [x, y]
+def convert_coordinates(lon, lat):
+    x, y, z = geod.fwd(lon, lat)
+    return x, y
 
 # Function to fetch data for a single segment
 def fetch_segment_data(segment_id, start_time, end_time):
@@ -19,12 +28,31 @@ def fetch_segment_data(segment_id, start_time, end_time):
     response = requests.post(url, headers=headers, json=body)
     return response.json() if response.status_code == 200 else None
 
+# Function to fetch segment coordinates from the GeoJSON file
+def fetch_segment_coordinates(geojson_url):
+    try:
+        # Load GeoJSON file
+        segments = gpd.read_file(geojson_url)
+        
+        # Extract segment IDs and coordinates
+        segment_coords = {}
+        for idx, segment in segments.iterrows():
+            segment_id = segment['segment_id']
+            lon, lat = segment.geometry.centroid.x, segment.geometry.centroid.y
+            x, y = convert_coordinates(lon, lat)
+            segment_coords[segment_id] = [x, y]
+        
+        return segment_coords
+
+    except Exception as e:
+        print(f"Error fetching segment coordinates: {str(e)}")
+        return None
+
 # Function to process the fetched data
 def process_traffic_data(data):
     hourly_traffic = {hour: {"car": [], "bike": [], "pedestrian": []} for hour in range(24)}
 
     for report in data.get('report', []):
-        # see https://stackoverflow.com/questions/127803/how-do-i-parse-an-iso-8601-formatted-date-and-time#comment90930357_49784038
         dt = datetime.fromisoformat(report['date'].replace("Z", "+00:00"))
         hour = dt.hour
         hourly_traffic[hour]["car"].append(report['car'])
@@ -58,17 +86,15 @@ def fetch_and_process_all_segments():
     all_segments_data = {}
     for segment in segments_data['features']:
         segment_id = segment['properties']['oidn']
-        coordinates = segment['geometry']['coordinates']
+        lon, lat = segment['geometry']['coordinates']
+        x, y = convert_coordinates(lon, lat)
         data = fetch_segment_data(segment_id, start_time, end_time)
         if data:
             averages = process_traffic_data(data)
             all_segments_data[segment_id] = {
                 "averages": averages,
-                "coordinates": coordinates
+                "coordinates": [x, y]  # Store as [x, y] instead of [lon, lat]
             }
-    
-    # Debugging output
-    print("All segments data:", json.dumps(all_segments_data, indent=2))
     
     return all_segments_data
 

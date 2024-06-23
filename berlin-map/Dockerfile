@@ -43,6 +43,7 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Copy the GeoJSON files into the container
 COPY app/pruned_streetlight.geojson /app/pruned_streetlight.geojson
 COPY app/bezirksgrenzen.geojson /app/bezirksgrenzen.geojson
+COPY app/bzm_telraam_segments.geojson /app/bzm_telraam_segments.geojson
 
 # Copy the current directory contents into the container
 COPY app /app

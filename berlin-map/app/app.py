@@ -106,7 +106,7 @@ for segment_id, data in traffic_data.items():
     avg_pedestrian = averages["avg_pedestrian"]
 
     folium.CircleMarker(
-        location=[coordinates[1], coordinates[0]],  # Assuming coordinates are [lon, lat]
+        location=[coordinates[0], coordinates[1]],  # Assuming coordinates are [lon, lat]
         radius=5,
         color='blue',
         fill=True,
