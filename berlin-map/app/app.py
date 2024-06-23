@@ -5,6 +5,7 @@ from streamlit_folium import st_folium
 from api_script import fetch_and_process_all_segments, fetch_segment_data, process_traffic_data
 import our_secrets
 import time
+from pathlib import Path
 
 # Measure total runtime
 start_total = time.time()
@@ -26,13 +27,13 @@ def load_traffic_data():
 
 # Measure time for loading district boundaries
 start_districts = time.time()
-districts_file = 'bezirksgrenzen.geojson'
+districts_file = Path(__file__).parent / 'bezirksgrenzen.geojson'
 districts = load_districts(districts_file)
 end_districts = time.time()
 
 # Measure time for loading streetlight GeoJSON
 start_streetlights = time.time()
-streetlights_file = 'pruned_streetlight.geojson'
+streetlights_file = Path(__file__).parent / 'pruned_streetlight.geojson'
 streetlights = load_streetlights(streetlights_file)
 end_streetlights = time.time()
 
