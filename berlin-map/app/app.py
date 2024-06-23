@@ -2,8 +2,8 @@ import streamlit as st
 import geopandas as gpd
 import folium
 from streamlit_folium import st_folium
-from api_script import fetch_and_process_all_segments
-import time
+from api_script import fetch_and_process_all_segments, fetch_segment_data, process_traffic_data
+import our_secrets
 
 # Measure total runtime
 start_total = time.time()
