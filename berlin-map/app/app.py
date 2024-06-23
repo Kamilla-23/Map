@@ -99,20 +99,22 @@ end_add_streetlights = time.time()
 
 # Add segments with traffic data to the map
 for segment_id, data in traffic_data.items():
-    averages = data["averages"][selected_hour]
-    coordinates = data["coordinates"]
-    avg_car = averages["avg_car"]
-    avg_bike = averages["avg_bike"]
-    avg_pedestrian = averages["avg_pedestrian"]
+    averages = data.get("averages", {}).get(selected_hour, {})  # Check if data exists for the hour
+    coordinates = data.get("coordinates", [])
+    if coordinates:  # Check if coordinates exist
+        avg_car = averages.get("avg_car", 0)
+        avg_bike = averages.get("avg_bike", 0)
+        avg_pedestrian = averages.get("avg_pedestrian", 0)
 
-    folium.CircleMarker(
-        location=[coordinates[0], coordinates[1]],  # Assuming coordinates are [lon, lat]
-        radius=5,
-        color='blue',
-        fill=True,
-        fill_color='blue',
-        popup=f"Hour: {selected_hour}\nCars: {avg_car:.2f}\nBikes: {avg_bike:.2f}\nPedestrians: {avg_pedestrian:.2f}"
-    ).add_to(m)
+        folium.CircleMarker(
+            location=[coordinates[1], coordinates[0]],  # Reversed order [lat, lon]
+            radius=5,
+            color='blue',
+            fill=True,
+            fill_color='blue',
+            popup=f"Hour: {selected_hour}\nCars: {avg_car:.2f}\nBikes: {avg_bike:.2f}\nPedestrians: {avg_pedestrian:.2f}",
+            zindexOffset=1000 # Ensure traffic markers are on top of streetlight markers
+        ).add_to(m)
 
 # Display the map with Streamlit
 st.title("Berlin Streetlights and Traffic Data Map")
