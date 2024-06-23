@@ -4,6 +4,7 @@ import folium
 from streamlit_folium import st_folium
 from api_script import fetch_and_process_all_segments, fetch_segment_data, process_traffic_data
 import our_secrets
+import time
 
 # Measure total runtime
 start_total = time.time()
