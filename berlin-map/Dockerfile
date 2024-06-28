@@ -1,13 +1,13 @@
-# Use the official Python 3.9 image from the Docker Hub
-FROM python:3.9-slim
+# Use an image with GDAL pre-installed
+FROM osgeo/gdal:ubuntu-small-3.4.1
 
 # Set the working directory
 WORKDIR /app
 
-# Install system dependencies and GDAL
+# Install system dependencies and Python
 RUN apt-get update && apt-get install -y \
-    gdal-bin \
-    python3-gdal \
+    python3 \
+    python3-pip \
     python3-dev \
     g++ \
     libgeos-dev \
@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Verify GDAL installation
-RUN gdalinfo --version
+RUN gdal-config --version
 
 # Set working directory back to /app
 WORKDIR /app
@@ -38,12 +38,14 @@ WORKDIR /app
 COPY app/requirements.txt /app/requirements.txt
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r /app/requirements.txt
+RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
-# Copy the GeoJSON files into the container
+# Copy the GeoJSON file into the container
 COPY app/pruned_streetlight.geojson /app/pruned_streetlight.geojson
 COPY app/bezirksgrenzen.geojson /app/bezirksgrenzen.geojson
-COPY app/bzm_telraam_segments.geojson /app/bzm_telraam_segments.geojson
+COPY app/converted_telraam_segments.geojson /app/converted_telraam_segments.geojson
+COPY app/fetched_segments_data.json /app/fetched_segments_data.json
+COPY app/polizeiabschnitte.geojson /app/polizeiabschnitte.geojson
 
 # Copy the current directory contents into the container
 COPY app /app
