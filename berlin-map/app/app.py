@@ -4,8 +4,11 @@ import folium
 from streamlit_folium import st_folium
 import time
 from pathlib import Path
+<<<<<<< HEAD
 import json
 from pyproj import Transformer
+=======
+>>>>>>> c120ee422812305ee70d9cf123d1a8425b32af75
 
 # Measure total runtime
 start_total = time.time()
