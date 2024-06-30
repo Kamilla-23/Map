@@ -40,13 +40,6 @@ COPY app/requirements.txt /app/requirements.txt
 # Install Python dependencies
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
-# Copy the GeoJSON file into the container
-COPY app/pruned_streetlight.geojson /app/pruned_streetlight.geojson
-COPY app/bezirksgrenzen.geojson /app/bezirksgrenzen.geojson
-COPY app/converted_telraam_segments.geojson /app/converted_telraam_segments.geojson
-COPY app/fetched_segments_data.json /app/fetched_segments_data.json
-COPY app/polizeiabschnitte.geojson /app/polizeiabschnitte.geojson
-
 # Copy the current directory contents into the container
 COPY app /app
 
