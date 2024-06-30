@@ -8,6 +8,7 @@ from pathlib import Path
 import json
 from pyproj import Transformer
 import pandas as pd
+import get_crime
 
 st.set_page_config(layout="wide")
 
@@ -40,54 +41,6 @@ def load_traffic_data(file_path):
 @st.cache_data
 def load_police_precincts(file_path):
     return gpd.read_file(file_path)
-
-# Cache the function for loading and processing crime data
-@st.cache_data
-def load_and_process_crime_data():
-    PATH = 'Fallzahlen&HZ 2014-2023.xlsx'
-    GEO_PATH = 'bezirksgrenzen.geojson'
-
-    BEZIRKE = ["Mitte", "Friedrichshain-Kreuzberg", "Pankow", "Charlottenburg-Wilmersdorf", "Spandau", "Steglitz-Zehlendorf", "Tempelhof-Schöneberg", "Neukölln", "Treptow-Köpenick", "Marzahn-Hellersdorf", "Lichtenberg", "Reinickendorf"]
-    STRAFTATEN = ["Bezeichnung (Bezirksregion)", "Straftaten \n-insgesamt-", "Raub", "Straßenraub,\nHandtaschen-raub", "Körper-verletzungen \n-insgesamt-", "Gefährl. und schwere Körper-verletzung", "Freiheits-beraubung, Nötigung,\nBedrohung, Nachstellung", "Diebstahl \n-insgesamt-"]
-
-    NEW_COLUMN_NAMES = {
-        "Straftaten \n-insgesamt-": "Gesamt",
-        "Raub": "Raub",
-        "Straßenraub,\nHandtaschen-raub": "Straßenraub",
-        "Körper-verletzungen \n-insgesamt-": "Körperverletzung",
-        "Gefährl. und schwere Körper-verletzung": "schwere Körperverletzung",
-        "Freiheits-beraubung, Nötigung,\nBedrohung, Nachstellung": "Freiheitsberaubung",
-        "Diebstahl \n-insgesamt-": "Diebstahl"
-    }
-
-    COLUMNS_TO_SUBTRACT = ["Raub", "Körperverletzung", "schwere Körperverletzung", "Freiheitsberaubung", "Diebstahl"]
-
-    def load_and_filter_data(year, path=PATH):
-        """Loads data for a specific year, filters by relevant columns and districts."""
-        sheet_name = f"Fallzahlen_{year}"
-        df = pd.read_excel(path, sheet_name=sheet_name, skiprows=4)
-        df_filtered = df[df["Bezeichnung (Bezirksregion)"].isin(BEZIRKE)][STRAFTATEN]
-        df_filtered["Jahr"] = year
-        return df_filtered.rename(columns=NEW_COLUMN_NAMES)
-
-    def calculate_other_crimes(df):
-        """Calculates the 'Other' crime category by subtracting known categories from the total."""
-        df["Other"] = df["Gesamt"] - df[COLUMNS_TO_SUBTRACT].sum(axis=1)
-        return df
-
-    def merge_with_geo_data(df, geo_path=GEO_PATH):
-        """Merges crime data with GeoJSON data, handles missing districts."""
-        df_geo = gpd.read_file(geo_path)
-        df = df.rename(columns={"Bezeichnung (Bezirksregion)": "Gemeinde_name"})
-        merged_df = df.merge(df_geo, on="Gemeinde_name", how="inner")
-        merged_df = merged_df.drop(columns=["gml_id", "Gemeinde_schluessel", "Land_name", "Land_schluessel", "Schluessel_gesamt"])
-        return gpd.GeoDataFrame(merged_df, geometry='geometry')
-
-    # Main execution
-    all_data = [load_and_filter_data(year) for year in range(2014, 2024)]
-    df_combined = pd.concat(all_data, ignore_index=True)
-    df_combined = calculate_other_crimes(df_combined)
-    return merge_with_geo_data(df_combined)
 
 # Function to convert coordinates from EPSG:25833 to EPSG:4326
 def convert_coordinates(coords):
@@ -125,24 +78,44 @@ police_precincts_file = Path(__file__).parent / 'polizeiabschnitte.geojson'
 police_precincts = load_police_precincts(police_precincts_file)
 end_police_precincts = time.time()
 
+crime_data = get_crime.load_and_process_crime_data()
+
 # Streamlit sidebar options
 st.sidebar.title("Map Options")
 selected_district = st.sidebar.selectbox("Choose a District", districts['Gemeinde_name'].unique())
 selected_layer = st.sidebar.selectbox("Select Layer", ["Streetlights", "Traffic Data", "Police Precincts", "Crime Data", "Crime Heat Map"])
-selected_hour = st.sidebar.selectbox("Choose an Hour", list(range(24)))
 
-# Measure time for filtering the selected district
-start_filter_district = time.time()
+# Add descriptions for each layer
+layer_descriptions = {
+    "Streetlights": "This layer shows the locations of streetlights within the selected district.",
+    "Traffic Data": "This layer displays traffic data, including average counts of cars, bikes, and pedestrians per hour for different segments.",
+    "Police Precincts": "This layer highlights the locations and contact information of police precincts in the district.",
+    "Crime Data": "This layer presents detailed crime data for the selected year and crime type.",
+    "Crime Heat Map": "This layer shows a heat map of total crime incidents across the district."
+}
+
+st.sidebar.write(layer_descriptions[selected_layer])
+
 district = districts[districts['Gemeinde_name'] == selected_district]
-end_filter_district = time.time()
 
-# Measure time for creating the folium map 
+if selected_layer == "Traffic Data":
+    selected_hour = st.sidebar.selectbox("Choose an Hour", list(range(24)))
+
+if selected_layer == "Crime Data" or selected_layer == "Crime Heat Map":
+    crime_data_in_district = crime_data[crime_data['Gemeinde_name'] == selected_district]
+    if crime_data_in_district.empty:
+        st.error(f"No crime data available for {selected_district}")
+    else:
+        # Select year and crime type only if there's data available
+        selected_year = st.sidebar.selectbox("Choose a Year", crime_data_in_district["Jahr"].unique())
+        selected_crime_type = st.sidebar.selectbox("Choose a Crime Type", crime_data.columns.drop(['Gemeinde_name', 'Jahr']))
+
 start_map_creation = time.time()
 
 if selected_layer == "Crime Heat Map":
     bounds = districts.total_bounds 
     m = folium.Map(
-        location=[(bounds[1] + bounds[3]) / 2, (bounds[0] + bounds[2]) / 2],  # Center of the bounds (SUGGESTED BY CHATGPT)
+        location=[(bounds[1] + bounds[3]) / 2, (bounds[0] + bounds[2]) / 2],  # Center of the bounds
         zoom_start=10  
     )
     # Add all district boundaries to the map
@@ -239,8 +212,6 @@ elif selected_layer == "Police Precincts":
 
 elif selected_layer == "Crime Data":
     # Measure time for adding crime data to the map
-    start_add_crime_data = time.time()
-    crime_data = load_and_process_crime_data()
     crime_data_in_district = crime_data[crime_data['Gemeinde_name'] == selected_district]
     
     # Add crime data to the map
@@ -266,7 +237,6 @@ elif selected_layer == "Crime Data":
 elif selected_layer == "Crime Heat Map":
     # Measure time for adding crime heat map to the map
     start_add_heat_map = time.time()
-    crime_data = load_and_process_crime_data()
     
     # Prepare data for the heat map
     heat_data = [[row['geometry'].centroid.y, row['geometry'].centroid.x, row['Gesamt']] for idx, row in crime_data.iterrows()]
@@ -289,8 +259,6 @@ st.text(f"Loading streetlights file: {end_streetlights - start_streetlights:.2f}
 st.text(f"Loading traffic data file: {end_traffic - start_traffic:.2f} seconds")
 st.text(f"Loading segment data file: {end_segment_data - start_segment_data:.2f} seconds")
 st.text(f"Loading police precincts file: {end_police_precincts - start_police_precincts:.2f} seconds")
-st.text(f"Filtering district: {end_filter_district - start_filter_district:.2f} seconds")
-st.text(f"Creating map: {end_map_creation - start_map_creation:.2f} seconds")
 
 if selected_layer == "Streetlights":
     st.text(f"Filtering streetlights: {end_filter_streetlights - start_filter_streetlights:.2f} seconds")
