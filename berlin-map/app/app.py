@@ -103,7 +103,7 @@ if selected_layer == "Crime Data" or selected_layer == "Crime Heat Map":
         selected_year = st.sidebar.selectbox("Choose a Year", crime_data_in_district["Jahr"].unique())
 
         if selected_layer == "Crime Heat Map":
-            selected_crime_type = st.sidebar.selectbox("Choose a Crime Type", crime_data.columns.drop(['Gemeinde_name', 'Jahr']))
+            selected_crime_type = st.sidebar.selectbox("Choose a Crime Type", crime_data.columns.drop(['Gemeinde_name', 'Jahr','geometry']))
 
 start_map_creation = time.time()
 
@@ -262,25 +262,3 @@ st_folium(m, width=1400, height=1000)
 
 # Measure total end time
 end_total = time.time()
-
-# Print results
-st.text(f"Total runtime: {end_total - start_total:.2f} seconds")
-st.text(f"Loading districts file: {end_districts - start_districts:.2f} seconds")
-st.text(f"Loading streetlights file: {end_streetlights - start_streetlights:.2f} seconds")
-st.text(f"Loading traffic data file: {end_traffic - start_traffic:.2f} seconds")
-st.text(f"Loading segment data file: {end_segment_data - start_segment_data:.2f} seconds")
-st.text(f"Loading police precincts file: {end_police_precincts - start_police_precincts:.2f} seconds")
-
-if selected_layer == "Streetlights":
-    st.text(f"Filtering streetlights: {end_filter_streetlights - start_filter_streetlights:.2f} seconds")
-    st.text(f"Adding streetlights to map: {end_add_streetlights - start_add_streetlights:.2f} seconds")
-elif selected_layer == "Traffic Data":
-    st.text(f"Filtering traffic data: {end_filter_traffic - start_filter_traffic:.2f} seconds")
-    st.text(f"Adding traffic data to map: {end_add_traffic - start_add_traffic:.2f} seconds")
-elif selected_layer == "Police Precincts":
-    st.text(f"Filtering police precincts: {end_filter_police_precincts - start_filter_police_precincts:.2f} seconds")
-    st.text(f"Adding police precincts to map: {end_add_police_precincts - start_add_police_precincts:.2f} seconds")
-elif selected_layer == "Crime Data":
-    st.text(f"Adding crime data to map: {end_add_crime_data - start_add_crime_data:.2f} seconds")
-elif selected_layer == "Crime Heat Map":
-    st.text(f"Adding crime heat map to map: {end_add_heat_map - start_add_heat_map:.2f} seconds")
