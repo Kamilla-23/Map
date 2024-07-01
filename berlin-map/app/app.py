@@ -216,7 +216,7 @@ elif selected_layer == "Police Precincts":
         popup_html += f"<b>Website:</b> <a href='{precinct['website']}' target='_blank'>{precinct['website']}</a><br>"
 
         # Extract coordinates from geometry
-        coordinates = precinct.geometry.coords[0]  # Assuming it's a Point geometry
+        coordinates = precinct.geometry.coords[0]
         lat, lon = coordinates[1], coordinates[0]
 
         # Add marker to the map
