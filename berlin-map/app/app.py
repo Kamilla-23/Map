@@ -42,12 +42,6 @@ def load_traffic_data(file_path):
 def load_police_precincts(file_path):
     return gpd.read_file(file_path)
 
-# Function to convert coordinates from EPSG:25833 to EPSG:4326
-def convert_coordinates(coords):
-    transformer = Transformer.from_crs("epsg:25833", "epsg:4326", always_xy=True)
-    lon, lat = transformer.transform(coords[0], coords[1])
-    return [lat, lon]
-
 # Measure time for loading district boundaries
 start_districts = time.time()
 districts_file = Path(__file__).parent / 'bezirksgrenzen.geojson'
@@ -74,7 +68,7 @@ end_segment_data = time.time()
 
 # Measure time for loading police precincts GeoJSON
 start_police_precincts = time.time()
-police_precincts_file = Path(__file__).parent / 'polizeiabschnitte.geojson'
+police_precincts_file = Path(__file__).parent / 'converted_police_precincts.geojson'
 police_precincts = load_police_precincts(police_precincts_file)
 end_police_precincts = time.time()
 
@@ -195,20 +189,30 @@ elif selected_layer == "Traffic Data":
 
 elif selected_layer == "Police Precincts":
 
+    start_filter_streetlights = time.time()
+    police_in_district = police_precincts[police_precincts.geometry.within(district.geometry.squeeze())]
+    end_filter_streetlights = time.time()
+
     # Measure time for adding police precincts to the map
     start_add_police_precincts = time.time()
-    for _, precinct in police_precincts.iterrows():
-        coords = convert_coordinates(precinct.geometry.centroid.coords[0])
+
+    for _, precinct in police_in_district.iterrows():
         popup_html = f"<b>Police Precinct</b><br>"
         popup_html += f"<b>Address:</b> {precinct['text']}, {precinct['locatorDesignator']}, {precinct['postCode']}<br>"
         popup_html += f"<b>Phone:</b> {precinct['telephoneVoice']}<br>"
         popup_html += f"<b>Website:</b> <a href='{precinct['website']}' target='_blank'>{precinct['website']}</a><br>"
-        
+
+        # Extract coordinates from geometry
+        coordinates = precinct.geometry.coords[0]  # Assuming it's a Point geometry
+        lat, lon = coordinates[1], coordinates[0]
+
+        # Add marker to the map
         folium.Marker(
-            location=coords,
+            location=[lat, lon],
             popup=folium.Popup(popup_html, max_width=500),
             icon=folium.Icon(color='red', icon='shield')
         ).add_to(m)
+
     end_add_police_precincts = time.time()
 
 elif selected_layer == "Crime Data":

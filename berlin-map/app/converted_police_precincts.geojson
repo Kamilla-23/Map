@@ -1,0 +1,1158 @@
+{
+    "type": "FeatureCollection",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:EPSG::25833"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_14",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_14",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "210",
+                "postCode": 13088,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Berliner Allee",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 114700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.467114247324767,
+                    52.557222066464234
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_42",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_42",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "45",
+                "postCode": 10827,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Hauptstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 442700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.349932191896514,
+                    52.48330719565666
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_13",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_13",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "37",
+                "postCode": 13187,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Hadlichstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 113700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.415049886957462,
+                    52.56978453485884
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_15",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_15",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "6-9",
+                "postCode": 10437,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Eberswalder Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 115700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.406551938004425,
+                    52.54084140333211
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_24",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_24",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "1",
+                "postCode": 14057,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Kaiserdamm",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 224700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.29542183172336,
+                    52.51109767318266
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_32",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_32",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "92",
+                "postCode": 12683,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Cecilienstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 662700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.562080592179827,
+                    52.52905820802244
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_43",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_43",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "10",
+                "postCode": 14129,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Alemannenstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 443700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.194921078687589,
+                    52.431699741083165
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_18",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_18",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "29",
+                "postCode": 13357,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Pankstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 118700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.375557039811744,
+                    52.54835540591097
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_11",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_11",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "35",
+                "postCode": 13507,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Berliner Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 111700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.289056828131518,
+                    52.582460005719625
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_28",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_28",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "145",
+                "postCode": 10557,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Alt-Moabit",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 228700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.366012672677606,
+                    52.52207602867048
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_12",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_12",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "6",
+                "postCode": 13437,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Am Nordgraben",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 112700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.325832997545586,
+                    52.58725005851938
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_23",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_23",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "27",
+                "postCode": 13581,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Schmidt-Knobelsdorf-Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 223700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.187949671357325,
+                    52.52221511373537
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_56",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_56",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "175",
+                "postCode": 10119,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Brunnenstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 556700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.39873987166214,
+                    52.53237027190592
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_41",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_41",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "19",
+                "postCode": 10823,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Gothaer Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 441700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.3472340674657,
+                    52.4886479120823
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_27",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_27",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "61a",
+                "postCode": 10559,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Perleberger Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 227700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.353329801881774,
+                    52.533613162343
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_34",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_34",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "35",
+                "postCode": 10317,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Nöldnerstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 664700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.484528834063827,
+                    52.5020038461685
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_53",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_53",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "219",
+                "postCode": 10969,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Friedrichstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 553700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.390560568246793,
+                    52.505008052039486
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_22",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_22",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "75",
+                "postCode": 13597,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Charlottenburger Chaussee",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 222700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.227175568706585,
+                    52.52797959993017
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_21",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_21",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "10",
+                "postCode": 13597,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Moritzstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 221700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.199851776324918,
+                    52.53916244896926
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_51",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_51",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "10",
+                "postCode": 10243,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Wedekindstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 551700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.444755511165985,
+                    52.512301987093906
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_35",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_35",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "42",
+                "postCode": 12487,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Segelfliegerdamm",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 665700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.508718342405665,
+                    52.443401530944755
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_33",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_33",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "35",
+                "postCode": 12621,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Heinrich-Grüber-Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 663700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.591532466244601,
+                    52.51491674715104
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_46",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_46",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "87",
+                "postCode": 12249,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Gallwitzallee",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 446700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.347530660465397,
+                    52.42779973194334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_17",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_17",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "16",
+                "postCode": 13347,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Oudenarder Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 117700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.360578938997673,
+                    52.55333719525993
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_45",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_45",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "7-8",
+                "postCode": 12203,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Augustaplatz",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 445700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.306355834384105,
+                    52.443512057569265
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_57",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_57",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "35",
+                "postCode": 10178,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Keibelstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 557700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.4156807783136,
+                    52.52434071033641
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_25",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_25",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "111",
+                "postCode": 10625,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Bismarckstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 225700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.318966505254346,
+                    52.51214075171059
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_44",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_44",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "6",
+                "postCode": 12099,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Götzstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 444700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.387437290919562,
+                    52.464498983745145
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_26",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_26",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "81",
+                "postCode": 10713,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Rudolstädter Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 226700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.30540223513496,
+                    52.485648059061134
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_31",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_31",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "2",
+                "postCode": 13057,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Pablo-Picasso-Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 661700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.515423036396895,
+                    52.566596279476926
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_48",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_48",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "58",
+                "postCode": 12353,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Zwickauer Damm",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 448700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.477680381337654,
+                    52.41938998538626
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_54",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_54",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "107",
+                "postCode": 12045,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Sonnenallee",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 554700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.44062806885065,
+                    52.48164222706439
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_36",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_36",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "8",
+                "postCode": 12557,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Karlstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 666700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.579707475354404,
+                    52.442399518021396
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_47",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_47",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "211",
+                "postCode": 12305,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Lichtenrader Damm",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 447700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.407311285562583,
+                    52.39419840163441
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_55",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_55",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "9",
+                "postCode": 12053,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Rollbergstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 555700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.434780557154987,
+                    52.47917055297342
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_16",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_16",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "101",
+                "postCode": 10407,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Storkower Str.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 116700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.452122093698314,
+                    52.537870884674625
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "gml_id": "GovernmentalService_52",
+                "beginLifespanVersion": null,
+                "localId": "GovernmentalService_52",
+                "namespace": "https://registry.gdi-de.org/id/de.be.us.poli/",
+                "versionId": null,
+                "language": "deu",
+                "nativeness": null,
+                "sourceOfName": null,
+                "pronunciation": null,
+                "text": "Berlin",
+                "script": "Latn",
+                "locatorDesignator": "16",
+                "postCode": 10965,
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|language": "deu",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|text": "Friesenstr.",
+                "pointOfContact|Contact|address|AddressRepresentation|thoroughfare|GeographicalName|spelling|SpellingOfName|script": "Latn",
+                "LocalisedCharacterString": "24/7",
+                "telephoneVoice": "+49 (0)30 4664 552700",
+                "website": "https://www.berlin.de/polizei"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.394681873981636,
+                    52.485847727794756
+                ]
+            }
+        }
+    ]
+}
