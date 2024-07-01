@@ -11,8 +11,7 @@ from pyproj import Transformer
 import pandas as pd
 import get_crime
 
-# Set up the page configuration
-st.set_page_config(page_title="Berlin Safety Map", layout="wide")
+st.title("Berlin Safety Map")
 
 # Expandable "About" section at the top of the page
 with st.expander("About this Project", expanded=False):
@@ -263,6 +262,11 @@ elif selected_layer == "Streetlights":
                 fill_color='yellow'
             ).add_to(m)
 
+# Create space after sidebar content using Markdown
+st.sidebar.markdown("---")
+
+# Display the image at the end of the sidebar
+st.sidebar.image("./static/berlin.png", caption='Contributors: Kamilla, Enes, Jinlin', use_column_width=True)
+
 # Display the map with Streamlit
-st.title("Berlin Safety Map")
 st_folium(m, width=1400, height=1000)
