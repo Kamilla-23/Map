@@ -189,9 +189,9 @@ elif selected_layer == "Traffic Data":
 
 elif selected_layer == "Police Precincts":
 
-    start_filter_streetlights = time.time()
+    start_filter_police_precincts = time.time()
     police_in_district = police_precincts[police_precincts.geometry.within(district.geometry.squeeze())]
-    end_filter_streetlights = time.time()
+    end_filter_police_precincts = time.time()
 
     # Measure time for adding police precincts to the map
     start_add_police_precincts = time.time()
@@ -217,6 +217,8 @@ elif selected_layer == "Police Precincts":
 
 elif selected_layer == "Crime Data":
     # Measure time for adding crime data to the map
+    start_add_crime_data = time.time()
+
     crime_data_in_district = crime_data[(crime_data['Gemeinde_name'] == selected_district) & (crime_data['Jahr'] == selected_year)]
     
     # Add crime data to the map
@@ -238,6 +240,7 @@ elif selected_layer == "Crime Data":
             icon=folium.Icon(color='green', icon='info-sign')
         ).add_to(m)
 
+    end_add_crime_data = time.time()
 elif selected_layer == "Crime Heat Map":
     # Measure time for adding crime heat map to the map
     start_add_heat_map = time.time()
