@@ -266,7 +266,7 @@ elif selected_layer == "Streetlights":
 st.sidebar.markdown("---")
 
 # Display the image at the end of the sidebar
-st.sidebar.image("./static/berlin.png", caption='Contributors: Kamilla, Enes, Jinlin', use_column_width=True)
+st.sidebar.image("./static/berlin.png", caption='Contributors: Enes, Jinlin, Kamilla', use_column_width=True)
 
 # Display the map with Streamlit
 st_folium(m, width=1400, height=1000)
