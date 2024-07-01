@@ -1,4 +1,6 @@
 import streamlit as st
+import streamlit.components.v1 as components
+import os
 import geopandas as gpd
 import folium
 from streamlit_folium import st_folium
@@ -9,7 +11,28 @@ from pyproj import Transformer
 import pandas as pd
 import get_crime
 
-st.set_page_config(layout="wide")
+# Set up the page configuration
+st.set_page_config(page_title="Berlin Safety Map", layout="wide")
+
+# Expandable "About" section at the top of the page
+with st.expander("About this Project", expanded=False):
+    st.write("""
+    ## About
+    Berlin Safety Map provides various features and data visualizations for the map of Berlin, including:
+    
+    - **Crime Heat Map**: Visualizes crime data for different crime types and years across Berlin.
+    - **Crime Data**: Shows crime statistics of different crimes in Berlin's districts.
+    - **Traffic Data**: Shows traffic patterns on specific streets at different time of the day.
+    - **Police Precincts**: Displays police precinct locations and information.
+    - **Streetlights**: Locates all streetlights in Berlin to differentiate between illuminated and dark streets at night.
+    
+    The key idea of the project is to provide user with clearly visualized data from official open-source data available for the city of Berlin.
+    The data should help analyze the safety level of Berlin from different perspectives and dimensions by looking at the city and its districts as a whole.
+    The map feature and the ability of the user to integrate with it to display and view different types of data should help
+    researchers, governmental institutions and Berlin's citizens who wish to know how safe they are in this large city.
+    
+    For more technical details, visit our GitHub repository(https://github.com/Kamilla-23/Map).
+    """)
 
 # Cache the function for loading district boundaries
 @st.cache_data
