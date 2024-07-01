@@ -63,7 +63,7 @@ crime_data = get_crime.load_and_process_crime_data()
 # Streamlit sidebar options
 st.sidebar.title("Map Options")
 selected_district = st.sidebar.selectbox("Choose a District", districts['Gemeinde_name'].unique())
-selected_layer = st.sidebar.selectbox("Select Layer", ["Crime Heat Map", "Crime Data", "Traffic Data", "Streetlights"])
+selected_layer = st.sidebar.selectbox("Select Layer", ["Crime Heat Map", "Crime Data", "Traffic Data", "Streetlights", "Police Precincts"])
 
 # Add descriptions for each layer
 layer_descriptions = {
@@ -241,5 +241,5 @@ elif selected_layer == "Streetlights":
             ).add_to(m)
 
 # Display the map with Streamlit
-st.title("Berlin Map")
+st.title("Berlin Safety Map")
 st_folium(m, width=1400, height=1000)
