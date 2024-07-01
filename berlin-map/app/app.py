@@ -106,9 +106,10 @@ if selected_layer == "Crime Data" or selected_layer == "Crime Heat Map":
     if crime_data_in_district.empty:
         st.error(f"No crime data available for {selected_district}")
     else:
-        # Select year and crime type only if there's data available
         selected_year = st.sidebar.selectbox("Choose a Year", crime_data_in_district["Jahr"].unique())
-        selected_crime_type = st.sidebar.selectbox("Choose a Crime Type", crime_data.columns.drop(['Gemeinde_name', 'Jahr']))
+
+        if selected_layer == "Crime Heat Map":
+            selected_crime_type = st.sidebar.selectbox("Choose a Crime Type", crime_data.columns.drop(['Gemeinde_name', 'Jahr']))
 
 start_map_creation = time.time()
 
@@ -212,7 +213,7 @@ elif selected_layer == "Police Precincts":
 
 elif selected_layer == "Crime Data":
     # Measure time for adding crime data to the map
-    crime_data_in_district = crime_data[crime_data['Gemeinde_name'] == selected_district]
+    crime_data_in_district = crime_data[(crime_data['Gemeinde_name'] == selected_district) & (crime_data['Jahr'] == selected_year)]
     
     # Add crime data to the map
     for _, row in crime_data_in_district.iterrows():
@@ -232,17 +233,20 @@ elif selected_layer == "Crime Data":
             popup=folium.Popup(popup_html, max_width=500),
             icon=folium.Icon(color='green', icon='info-sign')
         ).add_to(m)
-    end_add_crime_data = time.time()
 
 elif selected_layer == "Crime Heat Map":
     # Measure time for adding crime heat map to the map
     start_add_heat_map = time.time()
     
     # Prepare data for the heat map
-    heat_data = [[row['geometry'].centroid.y, row['geometry'].centroid.x, row['Gesamt']] for idx, row in crime_data.iterrows()]
-    
+    filtered_crime_data = crime_data[(crime_data["Jahr"] == selected_year) & (crime_data[selected_crime_type] > 0)]
+
+    # Prepare data for the heat map with selected crime type
+    heat_data = [[row['geometry'].centroid.y, row['geometry'].centroid.x, row[selected_crime_type]] for idx, row in filtered_crime_data.iterrows()]
+
     # Add heat map to the map
     HeatMap(heat_data).add_to(m)
+
     end_add_heat_map = time.time()
 
 # Display the map with Streamlit
